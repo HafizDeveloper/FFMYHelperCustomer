@@ -1,0 +1,241 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="ms">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Requests - FFMY Support</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="submit-page">
+    <nav class="cs-nav">
+        <div class="cs-nav-inner">
+            <a href="/" class="nav-logo">
+                <img src="images/a02539775843bd06cae6190613bdabb66003730a.png" alt="Garena">
+            </a>
+            <div style="display: flex; gap: 12px;">
+                <a href="submit.html" class="btn-submit">+ New Request</a>
+                <a href="/" class="btn-submit" style="background: transparent; border: 1px solid #FFB800; color: #FFB800;">Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="submit-main" style="padding-top: 40px;">
+        <div class="submit-section-head">
+            <span class="submit-section-label">My Support Requests</span>
+            <div class="submit-section-line"></div>
+        </div>
+        <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 24px;">Semak status laporan dan maklum balas daripada pihak sokongan kami.</p>
+
+        <div class="submit-form-card" style="padding: 0; overflow: hidden;">
+            <div id="ticketsList" class="ticket-items">
+                <p style="text-align: center; padding: 32px; color: #9ca3af;">Memuatkan senarai tiket anda...</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function getRequestTypeLabel(type) {
+            const labels = {
+                feedback: 'Feedback',
+                ban_appeal: 'Ban Appeal',
+                bug_report: 'Bug Report',
+                general_inquiry: 'General Inquiry',
+                technical_issue: 'Technical Issue'
+            };
+            return labels[type] || type;
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const ticketsList = document.getElementById('ticketsList');
+
+            try {
+                const userResponse = await fetch('/api/current_user', { credentials: 'include' });
+                const user = await userResponse.json();
+
+                if (!user) {
+                    alert('Sila log masuk terlebih dahulu.');
+                    window.location.href = '/';
+                    return;
+                }
+
+                const tResponse = await fetch('/api/my-tickets', { credentials: 'include' });
+
+                if (tResponse.status === 401) {
+                    alert('Sila log masuk terlebih dahulu.');
+                    window.location.href = '/';
+                    return;
+                }
+
+                if (!tResponse.ok) {
+                    ticketsList.innerHTML = '<p style="text-align: center; padding: 32px; color: #ef4444;">Ralat memuatkan tiket. Sila cuba lagi.</p>';
+                    return;
+                }
+
+                const myTickets = await tResponse.json();
+
+                if (!myTickets.length) {
+                    ticketsList.innerHTML = `
+                        <div style="text-align: center; padding: 48px 24px;">
+                            <div style="font-size: 2.5rem; margin-bottom: 12px;">📭</div>
+                            <p style="font-weight: 700; margin-bottom: 8px;">Anda belum mempunyai sebarang tiket.</p>
+                            <p style="font-size: 0.85rem; color: #9ca3af; margin-bottom: 20px;">Hantar permintaan sokongan baharu untuk mula.</p>
+                            <a href="submit.html" class="btn btn-submit-gold" style="display: inline-flex; text-decoration: none;">Submit Request</a>
+                        </div>
+                    `;
+                    return;
+                }
+
+                ticketsList.innerHTML = '';
+                myTickets.forEach(ticket => {
+                    const item = document.createElement('div');
+                    item.className = 'ticket-manage-item';
+                    item.onclick = () => window.location.href = `ticket.html?id=${ticket.ticket_id}`;
+
+                    const statusClass = ticket.status === 'Solved' ? 'status-solved' : 'status-open';
+                    const preview = ticket.description.length > 60
+                        ? ticket.description.substring(0, 60) + '...'
+                        : ticket.description;
+
+                    item.innerHTML = `
+                        <div>
+                            <div style="font-weight: 800; text-transform: uppercase; font-size: 0.8rem; color: #FFB800;">${ticket.ticket_id}</div>
+                            <div style="font-weight: 700; margin: 4px 0; color: #111827;">${getRequestTypeLabel(ticket.type)}</div>
+                            <div style="font-size: 0.85rem; color: #6b7280; margin-bottom: 4px;">${preview}</div>
+                            <div style="font-size: 0.75rem; color: #9ca3af;">UID: ${ticket.uid} · Dicipta: ${new Date(ticket.created_at).toLocaleDateString('ms-MY')}</div>
+                        </div>
+                        <span class="status-badge ${statusClass}">${ticket.status}</span>
+                    `;
+                    ticketsList.appendChild(item);
+                });
+            } catch (err) {
+                ticketsList.innerHTML = '<p style="text-align: center; padding: 32px; color: #ef4444;">Tidak dapat menyambung ke pelayan.</p>';
+            }
+        });
+    </script>
+</body>
+
+</html>
+=======
+<!DOCTYPE html>
+<html lang="ms">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Requests - FFMY Support</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="submit-page">
+    <nav class="cs-nav">
+        <div class="cs-nav-inner">
+            <a href="/" class="nav-logo">
+                <img src="images/a02539775843bd06cae6190613bdabb66003730a.png" alt="Garena">
+            </a>
+            <div style="display: flex; gap: 12px;">
+                <a href="submit.html" class="btn-submit">+ New Request</a>
+                <a href="/" class="btn-submit" style="background: transparent; border: 1px solid #FFB800; color: #FFB800;">Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="submit-main" style="padding-top: 40px;">
+        <div class="submit-section-head">
+            <span class="submit-section-label">My Support Requests</span>
+            <div class="submit-section-line"></div>
+        </div>
+        <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 24px;">Semak status laporan dan maklum balas daripada pihak sokongan kami.</p>
+
+        <div class="submit-form-card" style="padding: 0; overflow: hidden;">
+            <div id="ticketsList" class="ticket-items">
+                <p style="text-align: center; padding: 32px; color: #9ca3af;">Memuatkan senarai tiket anda...</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function getRequestTypeLabel(type) {
+            const labels = {
+                feedback: 'Feedback',
+                ban_appeal: 'Ban Appeal',
+                bug_report: 'Bug Report',
+                general_inquiry: 'General Inquiry',
+                technical_issue: 'Technical Issue'
+            };
+            return labels[type] || type;
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const ticketsList = document.getElementById('ticketsList');
+
+            try {
+                const userResponse = await fetch('/api/current_user', { credentials: 'include' });
+                const user = await userResponse.json();
+
+                if (!user) {
+                    alert('Sila log masuk terlebih dahulu.');
+                    window.location.href = '/';
+                    return;
+                }
+
+                const tResponse = await fetch('/api/my-tickets', { credentials: 'include' });
+
+                if (tResponse.status === 401) {
+                    alert('Sila log masuk terlebih dahulu.');
+                    window.location.href = '/';
+                    return;
+                }
+
+                if (!tResponse.ok) {
+                    ticketsList.innerHTML = '<p style="text-align: center; padding: 32px; color: #ef4444;">Ralat memuatkan tiket. Sila cuba lagi.</p>';
+                    return;
+                }
+
+                const myTickets = await tResponse.json();
+
+                if (!myTickets.length) {
+                    ticketsList.innerHTML = `
+                        <div style="text-align: center; padding: 48px 24px;">
+                            <div style="font-size: 2.5rem; margin-bottom: 12px;">📭</div>
+                            <p style="font-weight: 700; margin-bottom: 8px;">Anda belum mempunyai sebarang tiket.</p>
+                            <p style="font-size: 0.85rem; color: #9ca3af; margin-bottom: 20px;">Hantar permintaan sokongan baharu untuk mula.</p>
+                            <a href="submit.html" class="btn btn-submit-gold" style="display: inline-flex; text-decoration: none;">Submit Request</a>
+                        </div>
+                    `;
+                    return;
+                }
+
+                ticketsList.innerHTML = '';
+                myTickets.forEach(ticket => {
+                    const item = document.createElement('div');
+                    item.className = 'ticket-manage-item';
+                    item.onclick = () => window.location.href = `ticket.html?id=${ticket.ticket_id}`;
+
+                    const statusClass = ticket.status === 'Solved' ? 'status-solved' : 'status-open';
+                    const preview = ticket.description.length > 60
+                        ? ticket.description.substring(0, 60) + '...'
+                        : ticket.description;
+
+                    item.innerHTML = `
+                        <div>
+                            <div style="font-weight: 800; text-transform: uppercase; font-size: 0.8rem; color: #FFB800;">${ticket.ticket_id}</div>
+                            <div style="font-weight: 700; margin: 4px 0; color: #111827;">${getRequestTypeLabel(ticket.type)}</div>
+                            <div style="font-size: 0.85rem; color: #6b7280; margin-bottom: 4px;">${preview}</div>
+                            <div style="font-size: 0.75rem; color: #9ca3af;">UID: ${ticket.uid} · Dicipta: ${new Date(ticket.created_at).toLocaleDateString('ms-MY')}</div>
+                        </div>
+                        <span class="status-badge ${statusClass}">${ticket.status}</span>
+                    `;
+                    ticketsList.appendChild(item);
+                });
+            } catch (err) {
+                ticketsList.innerHTML = '<p style="text-align: center; padding: 32px; color: #ef4444;">Tidak dapat menyambung ke pelayan.</p>';
+            }
+        });
+    </script>
+</body>
+
+</html>
+>>>>>>> 0d2c8ec (first commit)

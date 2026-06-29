@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ms">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Support Ticket - Free Fire Malaysia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="cs-nav">
+        <div class="cs-nav-inner">
+            <a href="/" class="nav-logo">
+                <img src="images/a02539775843bd06cae6190613bdabb66003730a.png" alt="Garena">
+            </a>
+            <a href="submit.html" class="btn-submit">+ New Ticket</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="hero-banner" style="margin-top: 20px;">
+            <img src="images/hero_banner.jpg" alt="Free Fire Hero Banner">
+        </div>
+
+        <div id="loadingView" class="card text-center"
+            style="padding: 60px 0; border: 1px solid #f3f4f6; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+            <p>Memproses maklumat tiket anda...</p>
+        </div>
+
+        <div id="ticketView" class="ticket-detail-grid" style="display: none;">
+            <div class="ticket-main-column">
+                <div class="ticket-user-header">
+                    <div class="user-avatar-circle">
+                        <img src="images/default_avatar.png" alt="User Avatar"
+                            style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                    </div>
+                    <div class="user-meta-info">
+                        <h3 id="usernameDisplay">User ID</h3>
+                        <span id="createdTimeDisplay">Created Time</span>
+                    </div>
+                </div>
+
+                <div class="ticket-content-body">
+                    <h1 id="ticketSubjectDisplay">Ticket Subject</h1>
+                    <div id="ticketMessageDisplay" class="ticket-message-text">Ticket Message</div>
+
+                    <div id="mainAttachmentsSection" class="attachments-section">
+                        <h4>Attachments</h4>
+                        <div id="mainAttachmentsList" class="attachment-grid"></div>
+                    </div>
+                </div>
+
+                <div class="replies-wrapper">
+                    <div class="section-title">Replies</div>
+                    <div id="chatMessages" class="chat-history"></div>
+
+                    <form id="chatForm" onsubmit="sendChatMessage(event)" class="reply-box">
+                        <textarea id="chatInput" placeholder="Write a reply..." required></textarea>
+                        <button type="submit" class="btn btn-primary">Send Reply</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="ticket-sidebar-panel">
+                <div class="sidebar-block">
+                    <div class="sidebar-label">Status</div>
+                    <div id="ticketStatusBadge" class="status-badge">Open</div>
+                </div>
+                <div class="sidebar-block">
+                    <div class="sidebar-label">Requester Name</div>
+                    <div id="sidebarRequester">-</div>
+                </div>
+                <div class="sidebar-block">
+                    <div class="sidebar-label">Created Date</div>
+                    <div id="sidebarCreated">-</div>
+                </div>
+                <div class="sidebar-block">
+                    <div class="sidebar-label">Last Activity</div>
+                    <div id="sidebarUpdated">-</div>
+                </div>
+                <div class="sidebar-block">
+                    <div class="sidebar-label">Ticket ID</div>
+                    <div id="sidebarTicketId">-</div>
+                </div>
+                <div class="sidebar-block">
+                    <div class="sidebar-label">Attachments</div>
+                    <div id="sidebarAttachmentsList" class="attachment-list-simple"></div>
+                </div>
+            </div>
+
+            <div style="grid-column: 1 / -1; text-align: right; margin-top: 20px;">
+                <a href="/" class="btn btn-secondary">BACK TO HOME</a>
+            </div>
+
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2026 Free Fire Malaysia Customer Service. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/ticket.js"></script>
+</body>
+
+</html>

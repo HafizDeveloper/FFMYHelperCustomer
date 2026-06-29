@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ms">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - Free Fire Malaysia Support</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container" style="max-width: 1200px;">
+        <!-- Header -->
+        <header class="header">
+            <a href="dashboard.html" class="logo-link">
+                <h1>Admin Dashboard</h1>
+            </a>
+            <div>Sokongan Tiket Real-Time</div>
+        </header>
+
+        <!-- Main Dashboard View -->
+        <div class="dashboard-layout">
+
+            <!-- Left Side: Ticket List Panel -->
+            <div class="ticket-list-panel">
+                <div class="panel-header">Senarai Tiket</div>
+
+                <!-- Filters -->
+                <div class="panel-filters">
+                    <button class="filter-btn active" id="filter-all" onclick="filterTickets('all')">Semua</button>
+                    <button class="filter-btn" id="filter-open" onclick="filterTickets('Open')">Open</button>
+                    <button class="filter-btn" id="filter-solved" onclick="filterTickets('Solved')">Solved</button>
+                </div>
+
+                <!-- Ticket List Container -->
+                <div id="ticketItems" class="ticket-items">
+                    <p style="padding: 20px; text-align: center; color: #666666;">Memuat turun tiket...</p>
+                </div>
+            </div>
+
+            <!-- Right Side: Ticket Details and Chat Pane -->
+            <div class="detail-panel">
+
+                <!-- Placeholder when no ticket is selected -->
+                <div id="detailPlaceholder" class="detail-placeholder">
+                    <span style="font-size: 3rem; margin-bottom: 15px;">📁</span>
+                    <p>Pilih tiket untuk memulakan semakan</p>
+                </div>
+
+                <!-- Active Ticket Details -->
+                <div id="activeTicketView" style="display: none; flex-direction: column; height: 100%;">
+                    <!-- Detail Header -->
+                    <div class="detail-header">
+                        <div class="detail-info">
+                            <h2 id="activeTicketId">FFMY-XXXXXX</h2>
+                            <div style="font-size: 0.8rem; color: #555555; margin-top: 4px;">Dicipta pada: <span
+                                    id="activeTicketDate">-</span></div>
+                        </div>
+                        <div style="display: flex; gap: 10px; align-items: center;">
+                            <div id="activeTicketStatusBadge" class="status-badge">Open</div>
+                            <button id="toggleStatusBtn" class="btn btn-secondary"
+                                style="padding: 6px 12px; font-size: 0.75rem;" onclick="toggleTicketStatus()">Tukar
+                                Status</button>
+                        </div>
+                    </div>
+
+                    <!-- Meta details grid -->
+                    <div class="detail-grid">
+                        <div>
+                            <strong>UID Akaun:</strong>
+                            <p id="activeTicketUid">-</p>
+                        </div>
+                        <div>
+                            <strong>Nickname:</strong>
+                            <p id="activeTicketNickname">-</p>
+                        </div>
+                        <div>
+                            <strong>Jenis Aduan:</strong>
+                            <p id="activeTicketType">-</p>
+                        </div>
+                        <div>
+                            <strong>Persetujuan Polisi:</strong>
+                            <p id="activeTicketPrivacy">Bersetuju</p>
+                        </div>
+                    </div>
+
+                    <!-- Description scrollbox -->
+                    <div class="detail-desc">
+                        <div class="detail-desc-title">Deskripsi Isu</div>
+                        <p id="activeTicketDesc">-</p>
+                    </div>
+
+                    <!-- Attachments -->
+                    <div id="activeTicketAttachments" class="detail-attachments" style="display: none;">
+                        <div class="detail-desc-title">Tangkapan Skrin & Fail Lampiran</div>
+                        <div id="activeTicketAttachmentsList" class="attachment-links"></div>
+                    </div>
+
+                    <!-- Chat Box Header -->
+                    <div class="panel-header"
+                        style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; padding: 10px 20px;">
+                        Sembang Secara Langsung (Live Chat)</div>
+
+                    <!-- Chat messages scroll box -->
+                    <div id="adminChatMessages" class="chat-messages" style="flex-grow: 1;">
+                        <!-- Messages go here -->
+                    </div>
+
+                    <!-- Chat Send Box -->
+                    <form id="adminChatForm" onsubmit="sendAdminChatMessage(event)" class="chat-input-area">
+                        <textarea id="adminChatInput"
+                            placeholder="Taip jawapan anda di sini (Menjawab akan menukar status tiket ke Solved)..."
+                            required autocomplete="off"></textarea>
+                        <button type="submit" id="adminSendBtn">BALAS</button>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-logo-row">
+                <img src="images/a02539775843bd06cae6190613bdabb66003730a.png" alt="Garena" style="height: 24px;">
+            </div>
+            <div class="footer-social">
+                <a href="https://discord.gg/afxH8Mgc" target="_blank">Discord</a>
+                <a href="https://www.youtube.com/@freefiremalaysiaofficial?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGnp-YXkRJwAta-wRevGWp9BNmgHPTTkjLQNBDKkcIXWhueYgxesKpgj8ukqsY_aem_YnHYessIX-bkSmz3XVwP8A"
+                    target="_blank">YouTube</a>
+                <a href="https://www.instagram.com/freefiremalaysiaofficial/" target="_blank">Instagram</a>
+            </div>
+            <div class="footer-copy">
+                &copy; 2026 Free Fire Malaysia Customer Service. Hak Cipta Terpelihara.
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

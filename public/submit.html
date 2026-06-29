@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ms">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Support Ticket - Free Fire Malaysia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="submit-page">
+
+    <nav class="cs-nav">
+        <div class="cs-nav-inner">
+            <a href="/" class="nav-logo">
+                <img src="images/a02539775843bd06cae6190613bdabb66003730a.png" alt="Garena">
+            </a>
+            <a href="/" class="btn-submit">← Back to Home</a>
+        </div>
+    </nav>
+
+    <div class="disclaimer-bar">
+        ⚠ This site is an <strong>unofficial community support center</strong> for Free Fire Malaysia players.
+    </div>
+
+    <div class="submit-hero-wrap">
+        <div class="submit-hero-box">
+            <img src="images/hero_banner.jpg" alt="Free Fire Hero Banner" class="submit-hero-bg">
+            <div class="submit-hero-overlay"></div>
+            <div class="submit-hero-content">
+                <div class="submit-hero-eyebrow">Community Support</div>
+                <h1 class="submit-hero-title">Submit a <span>New Request</span></h1>
+                <p class="submit-hero-desc">Fill in the form below and our team will assist you as soon as possible.</p>
+            </div>
+        </div>
+    </div>
+
+    <main class="submit-main">
+
+        <div class="submit-info-card">
+            <div class="submit-info-icon" aria-hidden="true">ℹ️</div>
+            <div class="submit-info-body">
+                <p class="submit-info-highlight">*Our support is limited to and will only entertain requests in English language.</p>
+                <p>If you are not able to attach any file when submitting request via ingame browser, we recommend to open Customer Service website in other browser. Simply tap on the arrow icon and choose browser from available options.</p>
+                <p>Dear user, to effectively assist you with your issue, please complete the form below with the required information before submitting. Please choose the appropriate issue depending on your concern below:</p>
+            </div>
+        </div>
+
+        <div class="submit-section-head">
+            <span class="submit-section-label" id="formSubtitle">Submit Ticket</span>
+            <div class="submit-section-line"></div>
+        </div>
+
+        <div class="submit-form-card">
+            <form id="ticketForm" enctype="multipart/form-data" onsubmit="submitTicket(event)">
+
+                <div class="form-section">
+                    <div class="form-section-header">
+                        <div class="form-section-icon">🎮</div>
+                        <div>
+                            <h3 class="form-section-title">Account Information</h3>
+                            <p class="form-section-desc">Enter your Free Fire account details</p>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="uid" class="form-label">Account UID <span class="required">*</span></label>
+                            <input type="text" id="uid" name="uid" class="form-control" placeholder="e.g. 1234567890" required pattern="\d+"
+                                title="UID mestilah nombor sahaja.">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nickname" class="form-label">Account Nickname <span class="required">*</span></label>
+                            <input type="text" id="nickname" name="nickname" class="form-control" placeholder="Your in-game name" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="form-section-header">
+                        <div class="form-section-icon">📋</div>
+                        <div>
+                            <h3 class="form-section-title">Request Details</h3>
+                            <p class="form-section-desc">Tell us about your issue</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="requestTypeSelect" class="form-label">Request Type <span class="required">*</span></label>
+                        <div class="select-wrapper">
+                            <select id="requestTypeSelect" name="request_type" class="form-control" required>
+                                <option value="">-- Please Select Request Type --</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="ban_appeal">Ban Appeal</option>
+                                <option value="bug_report">Bug Report</option>
+                                <option value="general_inquiry">General Inquiry</option>
+                                <option value="technical_issue">Technical Issue</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-group checkbox-card">
+                        <input type="checkbox" id="privacyPolicy" name="privacy_policy" required>
+                        <label for="privacyPolicy" class="checkbox-label">
+                            <strong>Privacy Policy <span class="required">*</span></strong><br>
+                            By submitting your request, you understand and agree that any information collected will be used
+                            in accordance with our Privacy Policy:
+                            <a href="https://content.garena.com/legal/pp/pp_en.html" target="_blank">View Privacy Policy</a>.
+                        </label>
+                    </div>
+
+                    <div class="checkbox-group checkbox-card checkbox-warning" id="banScreenshotGroup" style="display: none;">
+                        <input type="checkbox" id="banScreenshot" name="ban_screenshot">
+                        <label for="banScreenshot" class="checkbox-label">
+                            <strong>Screenshot of Ban Message <span class="required">*</span></strong><br>
+                            Only ban appeals with the screenshot of Ban Message will be entertained.
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description" class="form-label">Description <span class="required">*</span></label>
+                        <p class="form-hint">Please provide detailed information about your issue</p>
+                        <textarea id="description" name="description" class="form-control"
+                            placeholder="Describe your issue in detail..." required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="form-section-header">
+                        <div class="form-section-icon">📎</div>
+                        <div>
+                            <h3 class="form-section-title">Attachments</h3>
+                            <p class="form-section-desc">Upload screenshots or files related to your issue (optional)</p>
+                        </div>
+                    </div>
+
+                    <div class="upload-container" onclick="document.getElementById('fileInput').click()">
+                        <div class="upload-icon-wrap">
+                            <svg class="upload-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 16V4m0 0L8 8m4-4l4 4M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"/>
+                            </svg>
+                        </div>
+                        <div class="upload-text">Click to Capture Image or Choose File</div>
+                        <div class="upload-hint">Max 5 files · Images/docs up to 10MB · Videos up to 30MB · 50MB total</div>
+                    </div>
+
+                    <input type="file" id="fileInput" name="files" multiple class="visually-hidden"
+                        onchange="handleFileSelection(event)">
+
+                    <div id="fileList" class="file-list"></div>
+                </div>
+
+                <div id="uploadProgressContainer" class="progress-container">
+                    <div class="progress-label">Uploading your request...</div>
+                    <div class="progress-track">
+                        <div id="uploadProgressBar" class="progress-bar"></div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <a href="/" class="btn btn-secondary">Back</a>
+                    <button type="submit" id="submitBtn" class="btn btn-submit-gold">Submit Request</button>
+                </div>
+
+            </form>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-logo-row">
+            <img src="images/a02539775843bd06cae6190613bdabb66003730a.png" alt="Garena" style="height: 24px;">
+        </div>
+        <div class="footer-social">
+            <a href="https://discord.gg/afxH8Mgc" target="_blank">Discord</a>
+            <a href="https://www.youtube.com/@freefiremalaysiaofficial?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGnp-YXkRJwAta-wRevGWp9BNmgHPTTkjLQNBDKkcIXWhueYgxesKpgj8ukqsY_aem_YnHYessIX-bkSmz3XVwP8A"
+                target="_blank">YouTube</a>
+            <a href="https://www.instagram.com/freefiremalaysiaofficial/" target="_blank">Instagram</a>
+        </div>
+        <div class="footer-copy">
+            &copy; 2026 Free Fire Malaysia Customer Service. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="js/submit.js"></script>
+</body>
+
+</html>

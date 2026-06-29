@@ -1,0 +1,19 @@
+# Virtual Environment
+.venv/
+venv/
+ENV/
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local Configurations & Uploads
+.env
+uploads/*
+!uploads/.gitkeep
+
+# IDE Settings
+.vscode/
+.idea/

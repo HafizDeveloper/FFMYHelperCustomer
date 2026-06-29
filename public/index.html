@@ -1,0 +1,1837 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="ms">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FFMY Support – Free Fire Malaysia Support Center</title>
+    <meta name="description"
+        content="Free Fire Malaysia community support center. Submit tickets, ban appeals, bug reports, and your feedback here.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --gold: #FFB800;
+            --gold-d: #cc9200;
+            --dark: #111827;
+            --card: #ffffff;
+            --border: #e1e1e1;
+            --muted: #6b7280;
+            --light: #1f2937;
+            --white: #ffffff;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+            --shadow-hover: 0 20px 25px -5px rgba(255, 184, 0, 0.1), 0 10px 10px -5px rgba(255, 184, 0, 0.04);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: var(--light);
+            min-height: 100vh;
+        }
+
+        .cs-nav {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 184, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            height: 62px;
+        }
+
+        .cs-nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .nav-logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            font-size: 1rem;
+            font-weight: 900;
+            color: #000;
+        }
+
+        .nav-logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .nav-logo-title {
+            font-size: 1rem;
+            font-weight: 900;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        .nav-logo-sub {
+            font-size: 0.55rem;
+            font-weight: 600;
+            color: #aaa;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .btn-submit {
+            background: var(--gold);
+            color: #000;
+            font-weight: 800;
+            font-size: 0.72rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 9px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background: var(--gold-d);
+            transform: translateY(-1px);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .nav-search {
+            display: flex;
+            align-items: center;
+            background: #1a1a1a;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .nav-search input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--light);
+            font-family: inherit;
+            font-size: 0.78rem;
+            padding: 7px 12px;
+            width: 200px;
+        }
+
+        .nav-search input::placeholder {
+            color: #555;
+        }
+
+        .nav-search button {
+            background: var(--gold);
+            border: none;
+            cursor: pointer;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .nav-search button:hover {
+            background: var(--gold-d);
+        }
+
+        .nav-search button img {
+            height: 14px;
+            filter: brightness(0);
+        }
+
+        .nav-admin-link {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--muted);
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .nav-admin-link:hover {
+            color: var(--gold);
+        }
+
+        .lang-selector {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #1a1a1a;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 6px 10px;
+        }
+
+        .lang-selector select {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--light);
+            font-family: inherit;
+            font-size: 0.78rem;
+            cursor: pointer;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            padding-right: 20px;
+        }
+
+        .lang-selector select option {
+            background: #1a1a1a;
+            color: var(--light);
+        }
+
+        .disclaimer-bar {
+            background: #1a1100;
+            border-bottom: 1px solid #332200;
+            text-align: center;
+            padding: 7px 20px;
+            font-size: 0.72rem;
+            color: #cc9200;
+            letter-spacing: 0.3px;
+        }
+
+        .hero-wrap {
+            max-width: 1200px;
+            margin: 28px auto 0;
+            padding: 0 24px;
+        }
+
+        .hero-box {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            height: 220px;
+            background: #000;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 55%, transparent 100%);
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 32px;
+            transform: translateY(-50%);
+        }
+
+        .hero-eyebrow {
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 10px;
+        }
+
+        .hero-title span {
+            color: var(--gold);
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 8px;
+        }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            border-radius: 8px;
+            padding: 8px 14px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .badge-pill:hover {
+            background: rgba(255, 184, 0, 0.15);
+            border-color: var(--gold);
+        }
+
+        .badge-pill img {
+            height: 32px;
+            border-radius: 4px;
+        }
+
+        .badge-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .badge-line1 {
+            font-size: 0.58rem;
+            color: #bbb;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-line2 {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.1;
+        }
+
+        .section-head {
+            max-width: 1200px;
+            margin: 36px auto 14px;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .section-head-label {
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            white-space: nowrap;
+        }
+
+        .section-head-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--border), transparent);
+        }
+
+        .cat-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        @media (max-width: 900px) {
+            .cat-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 560px) {
+            .cat-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .cat-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: visible;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .cat-card:hover {
+            border-color: var(--gold);
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-3px);
+        }
+
+        .cat-header {
+            height: 90px;
+            border-radius: 12px 12px 0 0;
+            background: #111827;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cat-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .cat-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('images/header_game.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.6;
+        }
+
+        .cat-icon {
+            position: absolute;
+            top: 50%;
+            left: 18px;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            line-height: 1;
+            z-index: 2;
+        }
+
+        .cat-header-label {
+            position: absolute;
+            right: 14px;
+            bottom: 12px;
+            font-size: 0.68rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gold);
+            z-index: 2;
+        }
+
+        .cat-char {
+            position: absolute;
+            top: -22px;
+            right: -6px;
+            height: 118px;
+            z-index: 10;
+            pointer-events: none;
+            filter: drop-shadow(0 4px 12px rgba(255, 184, 0, 0.3));
+        }
+
+        .cat-body {
+            padding: 16px 18px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cat-link {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--muted);
+            text-decoration: none;
+            border-bottom: 1px solid #f3f4f6;
+            transition: color 0.15s;
+            gap: 8px;
+        }
+
+        .cat-link::before {
+            content: '›';
+            color: var(--gold);
+            font-size: 1rem;
+            font-weight: 900;
+            flex-shrink: 0;
+        }
+
+        .cat-link:last-child {
+            border-bottom: none;
+        }
+
+        .cat-link:hover {
+            color: var(--gold);
+        }
+
+        .cat-link.gold {
+            color: var(--gold-d);
+            font-weight: 700;
+        }
+
+        .rec-wrap {
+            max-width: 1200px;
+            margin: 0 auto 50px;
+            padding: 0 24px;
+        }
+
+        .rec-panel {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        @media (max-width: 680px) {
+            .rec-panel {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .rec-poster {
+            background: #0d0d0d;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rec-poster img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+            filter: grayscale(20%);
+        }
+
+        .rec-poster::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(13, 13, 13, 0), #ffffff);
+        }
+
+        .rec-content {
+            padding: 24px 30px;
+        }
+
+        .rec-title {
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--gold);
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .rec-list {
+            list-style: none;
+        }
+
+        .rec-list li {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .rec-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rec-list a {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 11px 0;
+            font-size: 0.81rem;
+            font-weight: 500;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.15s;
+            line-height: 1.4;
+        }
+
+        .rec-list a::before {
+            content: '›';
+            color: var(--gold);
+            font-size: 1rem;
+            font-weight: 900;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .rec-list a:hover {
+            color: var(--gold);
+        }
+
+        .rec-list a.hi {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .cs-footer {
+            background: #000;
+            border-top: 1px solid var(--border);
+            padding: 24px 20px;
+            text-align: center;
+        }
+
+        .footer-logo-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .footer-logo-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--gold);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.55rem;
+            font-weight: 900;
+            color: #000;
+        }
+
+        .footer-logo-text {
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        .footer-copy {
+            font-size: 0.72rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            font-size: 0.72rem;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .cs-nav-inner {
+                padding: 0 12px;
+                gap: 8px;
+            }
+            .nav-logo img {
+                height: 28px !important;
+            }
+            .btn-submit {
+                padding: 6px 10px;
+                font-size: 0.65rem;
+            }
+            #nav-submit-btn {
+                white-space: nowrap;
+            }
+            .nav-user {
+                padding: 4px;
+            }
+            .user-name {
+                display: none; /* Hide text on small screens */
+            }
+            .lang-selector {
+                padding: 4px;
+            }
+            .lang-selector select {
+                font-size: 0.7rem;
+                padding-right: 14px;
+            }
+            .hero-box {
+                height: auto;
+                min-height: 240px;
+                padding: 30px 0;
+            }
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            .hero-content {
+                left: 20px;
+                right: 20px;
+            }
+            .hero-badges {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="cs-nav">
+        <div class="cs-nav-inner">
+
+            <div style="display:flex; align-items:center; gap:16px;">
+                <a href="/" class="nav-logo">
+                    <img src="images/a02539775843bd06cae6190613bdabb66003730a.png" alt="Garena" style="height: 36px;">
+                </a>
+                <a href="submit.html?type=feedback" class="btn-submit" id="nav-submit-btn">+ Submit Ticket</a>
+            </div>
+
+            <div class="nav-right" style="display:flex; align-items:center; gap:16px;">
+
+                <div class="nav-user" id="profileToggle">
+                    <span class="user-name" style="color: var(--white); font-size: 0.8rem;">Log Masuk</span>
+                    <div class="nav-user-avatar">👤</div>
+
+                    <!-- Dropdown Menu -->
+                    <div class="nav-dropdown" id="profileDropdown">
+                        <div class="dropdown-login-section">
+                            <p class="login-label">Log Masuk Melalui</p>
+                            <button class="login-social-btn google" onclick="handleSocialLogin('Google')">
+                                Google
+                            </button>
+                            <button class="login-social-btn facebook" onclick="handleSocialLogin('Facebook')">
+                                Facebook
+                            </button>
+                        </div>
+                        <a href="my-tickets.html" class="dropdown-item">My Requests</a>
+                        <a href="submit.html" class="dropdown-item">Submit a Request</a>
+                        <button class="dropdown-item sign-out" id="signOutBtn">Sign Out</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lang-selector">
+                <select id="languageSelector">
+                    <option value="en">English</option>
+                    <option value="ms">Malay</option>
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#aaa" viewBox="0 0 16 16"
+                    style="position: absolute; right: 10px; pointer-events: none;">
+                    <path fill-rule="evenodd"
+                        d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                </svg>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="disclaimer-bar">
+        ⚠ This site is an <strong>unofficial community support center</strong> for Free Fire Malaysia players. Not
+        officially affiliated with Garena or Activision.
+    </div>
+
+
+    <div class="hero-wrap reveal">
+        <div class="hero-box">
+            <img src="images/hero_banner.jpg" alt="Free Fire Malaysia" class="hero-bg">
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+                <div class="hero-eyebrow">Community Support Center</div>
+                <div class="hero-title">
+                    Free Fire<br><span>Malaysia</span> Support
+                </div>
+
+                <div class="hero-badges">
+                    <a href="https://play.google.com/store/apps/details?id=com.dts.freefireth" target="_blank"
+                        class="badge-pill" id="badge-google">
+                        <img src="images/badge_googleplay.png" alt="Google Play">
+                    </a>
+                    <a href="https://apps.apple.com/my/app/garena-free-fire/id1300146535" target="_blank"
+                        class="badge-pill" id="badge-apple">
+                        <svg width="18" height="22" viewBox="0 0 18 22" fill="white">
+                            <path
+                                d="M15.2 11.7c0-3.2 2.5-4.6 2.6-4.7-1.4-2-3.5-2.3-4.3-2.4-1.9-.2-3.6 1.1-4.6 1.1-.9 0-2.4-1-3.9-1-2.8 0-5.3 1.6-6.7 4.1C-4.4 13.6-2.2 21-1 24.9c1.3 1.9 3 4.1 5 4 2.1-.1 2.9-1.3 5.4-1.3s3.2 1.3 5.4 1.2c2.2-.1 3.5-1.9 4.8-3.8 1.5-2.2 2.1-4.3 2.1-4.4-.1-.1-4.2-1.7-4.5-6.9z" />
+                            <path
+                                d="M11.9 3.2C13.1 1.7 13.9-.2 13.7 0c-2.1.1-4.5 1.3-5.8 3-.9 1.1-1.8 3.2-1.6 5.2 2.3.1 4.6-1.2 5.6-5z" />
+                        </svg>
+                        <div class="badge-text">
+                            <span class="badge-line1">Download on the</span>
+                            <span class="badge-line2">App Store</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="section-head reveal">
+        <span class="section-head-label">Support Categories</span>
+        <div class="section-head-line"></div>
+    </div>
+
+    <div class="cat-grid reveal">
+
+        <div class="cat-card" id="cat-announce">
+            <div class="cat-header">
+                <span class="cat-icon">📢</span>
+                <span class="cat-header-label">Announcements</span>
+            </div>
+            <div class="cat-body">
+                <a href="#announcements" class="cat-link">Latest Announcements</a>
+                <a href="#patch-notes" class="cat-link">Patch Notes</a>
+                <a href="#maintenance" class="cat-link">Maintenance Schedule</a>
+            </div>
+        </div>
+
+        <div class="cat-card" id="cat-account">
+            <img src="images/kelly_cutout.png" alt="" class="cat-char" aria-hidden="true">
+            <div class="cat-header">
+                <span class="cat-icon">🔐</span>
+                <span class="cat-header-label">Account Issues</span>
+            </div>
+            <div class="cat-body">
+                <a href="#security" class="cat-link">Security FAQ</a>
+                <a href="submit.html?type=feedback" class="cat-link">Account Loss</a>
+                <a href="submit.html?type=ban_appeal" class="cat-link gold">Ban Appeal</a>
+            </div>
+        </div>
+
+        <div class="cat-card" id="cat-game">
+            <div class="cat-header">
+                <span class="cat-icon">🎮</span>
+                <span class="cat-header-label">Game Issues</span>
+            </div>
+            <div class="cat-body">
+                <a href="submit.html?type=bug_report" class="cat-link">Error Messages</a>
+                <a href="submit.html?type=feedback" class="cat-link">General Inquiries</a>
+                <a href="submit.html?type=bug_report" class="cat-link">Technical Issues</a>
+                <a href="https://forms.gle/your-hacker-report-form" target="_blank" class="cat-link">Report Cheaters</a>
+            </div>
+        </div>
+
+        <div class="cat-card" id="cat-payment">
+            <div class="cat-header">
+                <span class="cat-icon">💳</span>
+                <span class="cat-header-label">Payment Issues</span>
+            </div>
+            <div class="cat-body">
+                <a href="submit.html?type=feedback" class="cat-link">Failed Transactions</a>
+                <a href="submit.html?type=feedback" class="cat-link">Diamonds Not Received</a>
+                <a href="submit.html?type=feedback" class="cat-link">Voucher Code Issues</a>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="section-head reveal" style="margin-top:32px;">
+        <span class="section-head-label">Popular Articles</span>
+        <div class="section-head-line"></div>
+    </div>
+
+    <div class="rec-wrap reveal">
+        <div class="rec-panel" id="rec-panel">
+
+            <div class="rec-poster">
+                <img src="images/poster_character.png" alt="Free Fire Character">
+            </div>
+
+            <div class="rec-content">
+                <div class="rec-title">Recommended Articles</div>
+                <ul class="rec-list">
+                    <li>
+                        <a href="#hackers">
+                            Announcement: Punishment for Collaborating with Cheaters
+                        </a>
+                    </li>
+                    <li>
+                        <a href="submit.html?type=ban_appeal" class="hi">
+                            Announcement: Account Suspension Notice (Ban Notice)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="submit.html?type=ban_appeal" class="hi">
+                            Error Message: Abnormal activity detected on your account — Account suspended
+                        </a>
+                    </li>
+                    <li>
+                        <a href="submit.html?type=feedback">
+                            Error Message: Failed Transaction — Error Code 2999
+                        </a>
+                    </li>
+                    <li>
+                        <a href="submit.html?type=bug_report">
+                            Guide: How to Report Bugs In-Game
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <div class="footer-logo-row">
+            <img src="images/a02539775843bd06cae6190613bdabb66003730a.png" alt="Garena" style="height: 24px;">
+        </div>
+        <div class="footer-social">
+            <a href="https://discord.gg/afxH8Mgc" target="_blank">Discord</a>
+            <a href="https://www.youtube.com/@freefiremalaysiaofficial?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGnp-YXkRJwAta-wRevGWp9BNmgHPTTkjLQNBDKkcIXWhueYgxesKpgj8ukqsY_aem_YnHYessIX-bkSmz3XVwP8A"
+                target="_blank">YouTube</a>
+            <a href="https://www.instagram.com/freefiremalaysiaofficial/" target="_blank">Instagram</a>
+        </div>
+        <div class="footer-copy">
+            Unofficial community support site for Free Fire Malaysia players.<br>
+            Copyright &copy; 2026 FFMY Support. Not affiliated with Garena or their parent companies.
+        </div>
+        <div class="footer-links">
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#tos">Terms of Use</a>
+            <a href="submit.html?type=feedback">Contact Us</a>
+        </div>
+    </footer>
+
+
+    <script src="js/index.js"></script>
+
+</body>
+
+=======
+<!DOCTYPE html>
+<html lang="ms">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FFMY Support – Free Fire Malaysia Support Center</title>
+    <meta name="description"
+        content="Free Fire Malaysia community support center. Submit tickets, ban appeals, bug reports, and your feedback here.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --gold: #FFB800;
+            --gold-d: #cc9200;
+            --dark: #111827;
+            --card: #ffffff;
+            --border: #e1e1e1;
+            --muted: #6b7280;
+            --light: #1f2937;
+            --white: #ffffff;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+            --shadow-hover: 0 20px 25px -5px rgba(255, 184, 0, 0.1), 0 10px 10px -5px rgba(255, 184, 0, 0.04);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: var(--light);
+            min-height: 100vh;
+        }
+
+        .cs-nav {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 184, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            height: 62px;
+        }
+
+        .cs-nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .nav-logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            font-size: 1rem;
+            font-weight: 900;
+            color: #000;
+        }
+
+        .nav-logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .nav-logo-title {
+            font-size: 1rem;
+            font-weight: 900;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        .nav-logo-sub {
+            font-size: 0.55rem;
+            font-weight: 600;
+            color: #aaa;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .btn-submit {
+            background: var(--gold);
+            color: #000;
+            font-weight: 800;
+            font-size: 0.72rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 9px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background: var(--gold-d);
+            transform: translateY(-1px);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .nav-search {
+            display: flex;
+            align-items: center;
+            background: #1a1a1a;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .nav-search input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--light);
+            font-family: inherit;
+            font-size: 0.78rem;
+            padding: 7px 12px;
+            width: 200px;
+        }
+
+        .nav-search input::placeholder {
+            color: #555;
+        }
+
+        .nav-search button {
+            background: var(--gold);
+            border: none;
+            cursor: pointer;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .nav-search button:hover {
+            background: var(--gold-d);
+        }
+
+        .nav-search button img {
+            height: 14px;
+            filter: brightness(0);
+        }
+
+        .nav-admin-link {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--muted);
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .nav-admin-link:hover {
+            color: var(--gold);
+        }
+
+        .lang-selector {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #1a1a1a;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 6px 10px;
+        }
+
+        .lang-selector select {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--light);
+            font-family: inherit;
+            font-size: 0.78rem;
+            cursor: pointer;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            padding-right: 20px;
+        }
+
+        .lang-selector select option {
+            background: #1a1a1a;
+            color: var(--light);
+        }
+
+        .disclaimer-bar {
+            background: #1a1100;
+            border-bottom: 1px solid #332200;
+            text-align: center;
+            padding: 7px 20px;
+            font-size: 0.72rem;
+            color: #cc9200;
+            letter-spacing: 0.3px;
+        }
+
+        .hero-wrap {
+            max-width: 1200px;
+            margin: 28px auto 0;
+            padding: 0 24px;
+        }
+
+        .hero-box {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            height: 220px;
+            background: #000;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 55%, transparent 100%);
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 32px;
+            transform: translateY(-50%);
+        }
+
+        .hero-eyebrow {
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 10px;
+        }
+
+        .hero-title span {
+            color: var(--gold);
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 8px;
+        }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            border-radius: 8px;
+            padding: 8px 14px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .badge-pill:hover {
+            background: rgba(255, 184, 0, 0.15);
+            border-color: var(--gold);
+        }
+
+        .badge-pill img {
+            height: 32px;
+            border-radius: 4px;
+        }
+
+        .badge-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .badge-line1 {
+            font-size: 0.58rem;
+            color: #bbb;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-line2 {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.1;
+        }
+
+        .section-head {
+            max-width: 1200px;
+            margin: 36px auto 14px;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .section-head-label {
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            white-space: nowrap;
+        }
+
+        .section-head-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--border), transparent);
+        }
+
+        .cat-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        @media (max-width: 900px) {
+            .cat-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 560px) {
+            .cat-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .cat-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: visible;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .cat-card:hover {
+            border-color: var(--gold);
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-3px);
+        }
+
+        .cat-header {
+            height: 90px;
+            border-radius: 12px 12px 0 0;
+            background: #111827;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cat-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .cat-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('images/header_card_gold.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.6;
+        }
+
+        .cat-icon {
+            position: absolute;
+            top: 50%;
+            left: 18px;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            line-height: 1;
+            z-index: 2;
+        }
+
+        .cat-header-label {
+            position: absolute;
+            right: 14px;
+            bottom: 12px;
+            font-size: 0.68rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gold);
+            z-index: 2;
+        }
+
+        .cat-char {
+            position: absolute;
+            top: -22px;
+            right: -6px;
+            height: 118px;
+            z-index: 10;
+            pointer-events: none;
+            filter: drop-shadow(0 4px 12px rgba(255, 184, 0, 0.3));
+        }
+
+        .cat-body {
+            padding: 16px 18px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cat-link {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--muted);
+            text-decoration: none;
+            border-bottom: 1px solid #f3f4f6;
+            transition: color 0.15s;
+            gap: 8px;
+        }
+
+        .cat-link::before {
+            content: '›';
+            color: var(--gold);
+            font-size: 1rem;
+            font-weight: 900;
+            flex-shrink: 0;
+        }
+
+        .cat-link:last-child {
+            border-bottom: none;
+        }
+
+        .cat-link:hover {
+            color: var(--gold);
+        }
+
+        .cat-link.gold {
+            color: var(--gold-d);
+            font-weight: 700;
+        }
+
+        .rec-wrap {
+            max-width: 1200px;
+            margin: 0 auto 50px;
+            padding: 0 24px;
+        }
+
+        .rec-panel {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        @media (max-width: 680px) {
+            .rec-panel {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .rec-poster {
+            background: #0d0d0d;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rec-poster img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+            filter: grayscale(20%);
+        }
+
+        .rec-poster::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(13, 13, 13, 0), #ffffff);
+        }
+
+        .rec-content {
+            padding: 24px 30px;
+        }
+
+        .rec-title {
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--gold);
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .rec-list {
+            list-style: none;
+        }
+
+        .rec-list li {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .rec-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rec-list a {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 11px 0;
+            font-size: 0.81rem;
+            font-weight: 500;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.15s;
+            line-height: 1.4;
+        }
+
+        .rec-list a::before {
+            content: '›';
+            color: var(--gold);
+            font-size: 1rem;
+            font-weight: 900;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .rec-list a:hover {
+            color: var(--gold);
+        }
+
+        .rec-list a.hi {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .cs-footer {
+            background: #000;
+            border-top: 1px solid var(--border);
+            padding: 24px 20px;
+            text-align: center;
+        }
+
+        .footer-logo-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .footer-logo-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--gold);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.55rem;
+            font-weight: 900;
+            color: #000;
+        }
+
+        .footer-logo-text {
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        .footer-copy {
+            font-size: 0.72rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            font-size: 0.72rem;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="cs-nav">
+        <div class="cs-nav-inner">
+
+            <div style="display:flex; align-items:center; gap:16px;">
+                <a href="/" class="nav-logo">
+                    <img src="images/a02539775843bd06cae6190613bdabb66003730a.png" alt="Garena" style="height: 36px;">
+                </a>
+                <a href="submit.html?type=feedback" class="btn-submit" id="nav-submit-btn">+ Submit Ticket</a>
+            </div>
+
+            <div class="nav-right">
+                <div class="nav-user" id="profileToggle">
+                    <span class="user-name" style="color: var(--white); font-size: 0.8rem;">Log Masuk</span>
+                    <div class="nav-user-avatar">👤</div>
+
+                    <!-- Dropdown Menu -->
+                    <div class="nav-dropdown" id="profileDropdown">
+                        <div class="dropdown-login-section">
+                            <p class="login-label">Log Masuk Melalui</p>
+                            <button class="login-social-btn google" onclick="handleSocialLogin('Google')">
+                                Google
+                            </button>
+                            <button class="login-social-btn facebook" onclick="handleSocialLogin('Facebook')">
+                                Facebook
+                            </button>
+                        </div>
+                        <a href="my-tickets.html" class="dropdown-item">My Requests</a>
+                        <a href="submit.html" class="dropdown-item">Submit a Request</a>
+                        <button class="dropdown-item sign-out" id="signOutBtn">Sign Out</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lang-selector">
+                <select id="languageSelector">
+                    <option value="en">English</option>
+                    <option value="ms">Malay</option>
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#aaa" viewBox="0 0 16 16"
+                    style="position: absolute; right: 10px; pointer-events: none;">
+                    <path fill-rule="evenodd"
+                        d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                </svg>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="disclaimer-bar">
+        ⚠ This site is an <strong>unofficial community support center</strong> for Free Fire Malaysia players. Not
+        officially affiliated with Garena or Activision.
+    </div>
+
+
+    <div class="hero-wrap reveal">
+        <div class="hero-box">
+            <img src="images/hero_banner.jpg" alt="Free Fire Malaysia" class="hero-bg">
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+                <div class="hero-eyebrow">Community Support Center</div>
+                <div class="hero-title">
+                    Free Fire<br><span>Malaysia</span> Support
+                </div>
+
+                <div class="hero-badges">
+                    <a href="https://play.google.com/store/apps/details?id=com.dts.freefireth" target="_blank"
+                        class="badge-pill" id="badge-google">
+                        <img src="images/badge_googleplay.png" alt="Google Play">
+                    </a>
+                    <a href="https://apps.apple.com/my/app/garena-free-fire/id1300146535" target="_blank"
+                        class="badge-pill" id="badge-apple">
+                        <svg width="18" height="22" viewBox="0 0 18 22" fill="white">
+                            <path
+                                d="M15.2 11.7c0-3.2 2.5-4.6 2.6-4.7-1.4-2-3.5-2.3-4.3-2.4-1.9-.2-3.6 1.1-4.6 1.1-.9 0-2.4-1-3.9-1-2.8 0-5.3 1.6-6.7 4.1C-4.4 13.6-2.2 21-1 24.9c1.3 1.9 3 4.1 5 4 2.1-.1 2.9-1.3 5.4-1.3s3.2 1.3 5.4 1.2c2.2-.1 3.5-1.9 4.8-3.8 1.5-2.2 2.1-4.3 2.1-4.4-.1-.1-4.2-1.7-4.5-6.9z" />
+                            <path
+                                d="M11.9 3.2C13.1 1.7 13.9-.2 13.7 0c-2.1.1-4.5 1.3-5.8 3-.9 1.1-1.8 3.2-1.6 5.2 2.3.1 4.6-1.2 5.6-5z" />
+                        </svg>
+                        <div class="badge-text">
+                            <span class="badge-line1">Download on the</span>
+                            <span class="badge-line2">App Store</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="section-head reveal">
+        <span class="section-head-label">Support Categories</span>
+        <div class="section-head-line"></div>
+    </div>
+
+    <div class="cat-grid reveal">
+
+        <div class="cat-card" id="cat-announce">
+            <div class="cat-header">
+                <span class="cat-icon">📢</span>
+                <span class="cat-header-label">Announcements</span>
+            </div>
+            <div class="cat-body">
+                <a href="#announcements" class="cat-link">Latest Announcements</a>
+                <a href="#patch-notes" class="cat-link">Patch Notes</a>
+                <a href="#maintenance" class="cat-link">Maintenance Schedule</a>
+            </div>
+        </div>
+
+        <div class="cat-card" id="cat-account">
+            <img src="images/kelly_cutout.png" alt="" class="cat-char" aria-hidden="true">
+            <div class="cat-header">
+                <span class="cat-icon">🔐</span>
+                <span class="cat-header-label">Account Issues</span>
+            </div>
+            <div class="cat-body">
+                <a href="#security" class="cat-link">Security FAQ</a>
+                <a href="submit.html?type=feedback" class="cat-link">Account Loss</a>
+                <a href="submit.html?type=ban_appeal" class="cat-link gold">Ban Appeal</a>
+            </div>
+        </div>
+
+        <div class="cat-card" id="cat-game">
+            <div class="cat-header">
+                <span class="cat-icon">🎮</span>
+                <span class="cat-header-label">Game Issues</span>
+            </div>
+            <div class="cat-body">
+                <a href="submit.html?type=bug_report" class="cat-link">Error Messages</a>
+                <a href="submit.html?type=feedback" class="cat-link">General Inquiries</a>
+                <a href="submit.html?type=bug_report" class="cat-link">Technical Issues</a>
+                <a href="https://forms.gle/your-hacker-report-form" target="_blank" class="cat-link">Report Cheaters</a>
+            </div>
+        </div>
+
+        <div class="cat-card" id="cat-payment">
+            <div class="cat-header">
+                <span class="cat-icon">💳</span>
+                <span class="cat-header-label">Payment Issues</span>
+            </div>
+            <div class="cat-body">
+                <a href="submit.html?type=feedback" class="cat-link">Failed Transactions</a>
+                <a href="submit.html?type=feedback" class="cat-link">Diamonds Not Received</a>
+                <a href="submit.html?type=feedback" class="cat-link">Voucher Code Issues</a>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="section-head reveal" style="margin-top:32px;">
+        <span class="section-head-label">Popular Articles</span>
+        <div class="section-head-line"></div>
+    </div>
+
+    <div class="rec-wrap reveal">
+        <div class="rec-panel" id="rec-panel">
+
+            <div class="rec-poster">
+                <img src="images/poster_character.png" alt="Free Fire Character">
+            </div>
+
+            <div class="rec-content">
+                <div class="rec-title">Recommended Articles</div>
+                <ul class="rec-list">
+                    <li>
+                        <a href="#hackers">
+                            Announcement: Punishment for Collaborating with Cheaters
+                        </a>
+                    </li>
+                    <li>
+                        <a href="submit.html?type=ban_appeal" class="hi">
+                            Announcement: Account Suspension Notice (Ban Notice)
+                        </a>
+                    </li>
+                    <li>
+                        <a href="submit.html?type=ban_appeal" class="hi">
+                            Error Message: Abnormal activity detected on your account — Account suspended
+                        </a>
+                    </li>
+                    <li>
+                        <a href="submit.html?type=feedback">
+                            Error Message: Failed Transaction — Error Code 2999
+                        </a>
+                    </li>
+                    <li>
+                        <a href="submit.html?type=bug_report">
+                            Guide: How to Report Bugs In-Game
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <div class="footer-logo-row">
+            <img src="images/a02539775843bd06cae6190613bdabb66003730a.png" alt="Garena" style="height: 24px;">
+        </div>
+        <div class="footer-social">
+            <a href="https://discord.gg/afxH8Mgc" target="_blank">Discord</a>
+            <a href="https://www.youtube.com/@freefiremalaysiaofficial?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGnp-YXkRJwAta-wRevGWp9BNmgHPTTkjLQNBDKkcIXWhueYgxesKpgj8ukqsY_aem_YnHYessIX-bkSmz3XVwP8A"
+                target="_blank">YouTube</a>
+            <a href="https://www.instagram.com/freefiremalaysiaofficial/" target="_blank">Instagram</a>
+        </div>
+        <div class="footer-copy">
+            Unofficial community support site for Free Fire Malaysia players.<br>
+            Copyright &copy; 2026 FFMY Support. Not affiliated with Garena or their parent companies.
+        </div>
+        <div class="footer-links">
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#tos">Terms of Use</a>
+            <a href="submit.html?type=feedback">Contact Us</a>
+        </div>
+    </footer>
+
+
+    <script src="js/index.js"></script>
+
+</body>
+
+>>>>>>> 0d2c8ec (first commit)
+</html>

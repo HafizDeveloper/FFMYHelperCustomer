@@ -1,0 +1,118 @@
+<<<<<<< HEAD
+[
+    {
+        "ticket_id": "FFMY-703147",
+        "uid": "1234567890",
+        "nickname": "TestPlayer",
+        "type": "ban_appeal",
+        "description": "This is a testing ban appeal ticket description.",
+        "privacy_policy_accepted": true,
+        "ban_screenshot_accepted": true,
+        "status": "Open",
+        "attachments": [],
+        "messages": [],
+        "created_at": "2026-06-17T08:57:59.645384Z",
+        "updated_at": "2026-06-17T08:57:59.645384Z"
+    },
+    {
+        "ticket_id": "FFMY-230047",
+        "uid": "1234567890",
+        "nickname": "TestPlayer",
+        "type": "ban_appeal",
+        "description": "This is a testing ban appeal ticket description.",
+        "privacy_policy_accepted": true,
+        "ban_screenshot_accepted": true,
+        "status": "Solved",
+        "attachments": [
+            {
+                "filename": "test_screenshot.png",
+                "path": "/uploads/FFMY-230047/test_screenshot.png",
+                "size": 20,
+                "mime_type": "image/png"
+            }
+        ],
+        "messages": [],
+        "created_at": "2026-06-17T08:59:03.203313Z",
+        "updated_at": "2026-06-17T08:59:03.262172Z"
+    },
+    {
+        "ticket_id": "FFMY-738486",
+        "uid": "1234567890",
+        "nickname": "TestPlayer",
+        "type": "ban_appeal",
+        "description": "This is a testing ban appeal ticket description.",
+        "privacy_policy_accepted": true,
+        "ban_screenshot_accepted": true,
+        "status": "Solved",
+        "attachments": [
+            {
+                "filename": "test_screenshot.png",
+                "path": "/uploads/FFMY-738486/test_screenshot.png",
+                "size": 20,
+                "mime_type": "image/png"
+            }
+        ],
+        "messages": [],
+        "created_at": "2026-06-17T09:10:18.079238Z",
+        "updated_at": "2026-06-17T09:10:18.230991Z"
+    }
+=======
+[
+    {
+        "ticket_id": "FFMY-703147",
+        "uid": "1234567890",
+        "nickname": "TestPlayer",
+        "type": "ban_appeal",
+        "description": "This is a testing ban appeal ticket description.",
+        "privacy_policy_accepted": true,
+        "ban_screenshot_accepted": true,
+        "status": "Open",
+        "attachments": [],
+        "messages": [],
+        "created_at": "2026-06-17T08:57:59.645384Z",
+        "updated_at": "2026-06-17T08:57:59.645384Z"
+    },
+    {
+        "ticket_id": "FFMY-230047",
+        "uid": "1234567890",
+        "nickname": "TestPlayer",
+        "type": "ban_appeal",
+        "description": "This is a testing ban appeal ticket description.",
+        "privacy_policy_accepted": true,
+        "ban_screenshot_accepted": true,
+        "status": "Solved",
+        "attachments": [
+            {
+                "filename": "test_screenshot.png",
+                "path": "/uploads/FFMY-230047/test_screenshot.png",
+                "size": 20,
+                "mime_type": "image/png"
+            }
+        ],
+        "messages": [],
+        "created_at": "2026-06-17T08:59:03.203313Z",
+        "updated_at": "2026-06-17T08:59:03.262172Z"
+    },
+    {
+        "ticket_id": "FFMY-738486",
+        "uid": "1234567890",
+        "nickname": "TestPlayer",
+        "type": "ban_appeal",
+        "description": "This is a testing ban appeal ticket description.",
+        "privacy_policy_accepted": true,
+        "ban_screenshot_accepted": true,
+        "status": "Solved",
+        "attachments": [
+            {
+                "filename": "test_screenshot.png",
+                "path": "/uploads/FFMY-738486/test_screenshot.png",
+                "size": 20,
+                "mime_type": "image/png"
+            }
+        ],
+        "messages": [],
+        "created_at": "2026-06-17T09:10:18.079238Z",
+        "updated_at": "2026-06-17T09:10:18.230991Z"
+    }
+>>>>>>> 0d2c8ec (first commit)
+]
