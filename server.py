@@ -1,24 +1,18 @@
 import os
 import shutil
 import secrets
-import db
 from typing import List, Dict, Optional
 from datetime import datetime
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect, UploadFile, File, Form, HTTPException, Depends, status, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse, JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
-from pymongo import MongoClient
 from pydantic import BaseModel
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from starlette.middleware.sessions import SessionMiddleware
-try:
-    from authlib.integrations.starlette_client import OAuth
-except ModuleNotFoundError as e:
-    raise RuntimeError(
-        f"Missing dependency required for OAuth integration: {e}. "
-        "Make sure dependencies are installed (e.g., add httpx to requirements.txt)."
-    ) from e
+from authlib.integrations.starlette_client import OAuth
+
+import db
 
 os.makedirs("uploads", exist_ok=True)
 
@@ -101,10 +95,10 @@ def get_current_admin(credentials: HTTPBasicCredentials = Depends(security)):
         )
     return credentials.username
 
-@app.get("/dashboard")
-async def dashboard():
+@app.get("/dashboard", dependencies=[Depends(get_current_admin)])
+@app.get("/dashboart", dependencies=[Depends(get_current_admin)])
+async def redirect_to_admin_panel():
     return RedirectResponse(url="/dashboard.html")
-
 
 class StatusUpdate(BaseModel):
     status: str
@@ -316,7 +310,7 @@ async def get_my_tickets_for_user(request: Request):
 
 
 @app.get("/api/tickets", dependencies=[Depends(get_current_admin)])
-async def get_tickets_list(status: str = None, admin: str = Depends(get_current_admin)):
+def get_tickets_list(status: str = None, admin: str = Depends(get_current_admin)):
     try:
         return db.get_all_tickets(status=status)
     except Exception as e:
@@ -418,11 +412,4 @@ async def websocket_endpoint(websocket: WebSocket, ticket_id: str):
 
 
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
-if os.path.exists("public"):
-    app.mount("/", StaticFiles(directory="public", html=True), name="public")
-import os
-import uvicorn
-
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    uvicorn.run(app, host="0.0.0.0", port=port)
+app.mount("/", StaticFiles(directory="public", html=True), name="public")

@@ -17,14 +17,13 @@ mongoose.connect(process.env.MONGO_URL)
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.set('trust proxy', 1);
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({ mongoUrl: process.env.MONGO_URL }),
-    cookie: { maxAge: 24 * 60 * 60 * 1000, secure: true, sameSite: 'lax' }
+    cookie: { maxAge: 24 * 60 * 60 * 1000 }
 }));
 
 app.use(passport.initialize());
@@ -119,5 +118,5 @@ app.get('/home', (req, res) => res.redirect('/'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 const PORT = process.env.PORT || 3000;
->>>>>>> 0d2c8ec (first commit)
+>>>>>>> 5e6aea6a4900fb909713eece0c7e5253dd6a2a8b
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

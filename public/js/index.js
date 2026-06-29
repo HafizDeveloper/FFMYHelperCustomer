@@ -188,5 +188,5 @@ document.addEventListener('DOMContentLoaded', async () => {
             window.location.href = '/auth/logout';
         });
     }
->>>>>>> 0d2c8ec (first commit)
+>>>>>>> 5e6aea6a4900fb909713eece0c7e5253dd6a2a8b
 });

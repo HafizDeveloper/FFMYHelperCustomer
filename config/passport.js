@@ -20,7 +20,7 @@ passport.deserializeUser(async (id, done) => {
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: process.env.GOOGLE_REDIRECT_URI || `${process.env.BASE_URL || `http://localhost:${process.env.PORT || 3000}`}/auth/google/callback`,
+    callbackURL: "/auth/google/callback",
     proxy: true
 }, async (accessToken, refreshToken, profile, done) => {
     try {
@@ -120,4 +120,4 @@ passport.use(new FacebookStrategy({
         return done(err, null);
     }
 }));
->>>>>>> 0d2c8ec (first commit)
+>>>>>>> 5e6aea6a4900fb909713eece0c7e5253dd6a2a8b
